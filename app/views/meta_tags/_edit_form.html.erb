@@ -1,0 +1,22 @@
+<%= form.fields_for :meta_tags do |tag_form| %>
+	<%= tag_form.check_box :tag, {}, "FOV", nil %>FOV<br>
+	<%= tag_form.check_box :tag, {}, "FOR", nil %>FOR<br>
+	<%= tag_form.check_box :tag, {}, "Software FOR", nil %>Software FOR<br>
+	<%= tag_form.check_box :tag, {}, "Display size", nil %>Display size<br>
+	<%= tag_form.check_box :tag, {}, "Display form factor", nil %>Display form factor<br>
+	<%= tag_form.check_box :tag, {}, "Stereoscopy", nil %>Stereoscopy<br>
+	<%= tag_form.check_box :tag, {}, "Head tracking", nil %>Head tracking<br>
+	<%= tag_form.check_box :tag, {}, "Visual realism", nil %>Visual realism<br>
+	<%= tag_form.check_box :tag, {}, "Refresh rate", nil %>Refresh rate<br>
+	<%= tag_form.check_box :tag, {}, "Frame rate", nil %>Frame rate<br>
+	<%= tag_form.check_box :tag, {}, "Resolution (number of pixels)", nil %>Resolution (number of pixels)<br>
+	<%= tag_form.check_box :tag, {}, "Resolution (pixel density)", nil %>Resolution (pixel density)<br>
+	<%= tag_form.check_box :tag, {}, "Audio quality", nil %>Audio quality<br>
+	<%= tag_form.check_box :tag, {}, "Spatial audio (on/off)", nil %>Spatial audio (on/off)<br>
+	<%= tag_form.check_box :tag, {}, "Haptics quality", nil %>Haptics quality<br>
+	<%= tag_form.check_box :tag, {}, "Haptics (on,off)", nil %>Haptics (on/off)<br>
+	
+	<%= tag_form.label "Other (in the format [tag, tag, tag])" %>
+	<%= tag_form.text_field :tag %>
+<% end %>
+

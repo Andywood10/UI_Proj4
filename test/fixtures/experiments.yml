@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  entry_date: 2010-11-06
+  author: MyString
+  title: MyString
+  summary: MyText
+  citation: MyString
+  participants: 1
+  size: 1
+  realism: 1
+  user: 
+
+two:
+  entry_date: 2010-11-06
+  author: MyString
+  title: MyString
+  summary: MyText
+  citation: MyString
+  participants: 1
+  size: 1
+  realism: 1
+  user: 

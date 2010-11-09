@@ -1,0 +1,31 @@
+<h1>Immersion Knowledgebase</h1>
+
+<% @experiments.each do |experiment| %>
+<ul class="NoBullet">
+  <li><b>Experiment Date: </b><%= experiment.entry_date %></li>
+  <li><b>Author(s): </b><%= experiment.author %></li>
+  <li><b>Title: </b><%= experiment.title %></li>
+  <li><b>Summary: </b><%= experiment.summary %></li>
+  <li><b>Citation: </b><%= experiment.citation %></li>
+  <li><b>Number of Participants: </b><%= experiment.participants %></li>
+  <li><b>Environment Size: </b><%= experiment.size %></li>
+  <li><b>Realism: </b><%= experiment.realism %></li>
+  <li><b>Experiment Date: </b><%= experiment.times_viewed %></li>
+  <li><b>Times Viewed: </b><%= experiment.times_viewed %></li>
+  
+  <li><%= link_to 'Show', experiment %>
+  <% if User.find(experiment.user_id) == current_user %>
+	<%= link_to 'Edit', edit_experiment_path(experiment) %>
+	<%= link_to 'Destroy', experiment, :confirm => 'Are you sure?', :method => :delete %>
+  <% end %></li>
+  </ul>
+<% end %>
+
+
+<br />
+
+<% if user_signed_in? %>
+	<%= link_to 'New Experiment', new_experiment_path %>
+<% else %>
+	Want to add an experiment?  You must <%= link_to 'Sign In', new_experiment_path %> first.
+<% end %>

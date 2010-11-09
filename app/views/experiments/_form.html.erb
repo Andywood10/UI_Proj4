@@ -1,0 +1,65 @@
+<% if @experiment.meta_tags.empty? %>
+	<% @experiment.meta_tags.build %>
+<% end %>
+
+<%= form_for(@experiment) do |f| %>
+  <% if @experiment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@experiment.errors.count, "error") %> prohibited this experiment from being saved:</h2>
+
+      <ul>
+      <% @experiment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Entry Date:<br />
+    <%= f.date_select :entry_date %>
+  </div>
+  <div class="field">
+    Author(s):<br />
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+	Components of immersion varied:<br>
+	<%= render 	:partial => 'meta_tags/form',
+				:locals => {:form => f } %>
+		
+  </div>
+  <div class="field">
+    <%= f.label :summary %><br />
+    <%= f.text_area :summary, :rows => 4 %>
+  </div>
+  <div class="field">
+    <%= f.label :citation %><br />
+    <%= f.text_field :citation %>
+  </div>
+    <div class="field">
+    <%= f.label :participants %><br />
+    <%= f.text_field :participants %>
+  </div>
+  <div class="field">
+    Environment - Characterize the scale of the environment used:<br>
+	<%= f.radio_button :size, "1" %>Small (0-10 meters on a side)<br>
+	<%= f.radio_button :size, "2" %>Medium (10-100 meters on a side)<br>
+	<%= f.radio_button :size, "3" %>Large (>100 meters on a side)<br>
+	<%= f.radio_button :size, "4" %>Not reported<br>
+  </div>
+  <div class="field">
+    Environment - Characterize the visual realism of the environment used in this experiment:<br>
+	<%= f.radio_button :realism, "1" %>Low (abstract, cartoony, simple)<br>
+	<%= f.radio_button :realism, "2" %>Medium<br>
+	<%= f.radio_button :realism, "3" %>High (looks highly realistic)<br>
+	<%= f.radio_button :realism, "4" %>Not reported<br>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

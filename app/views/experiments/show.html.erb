@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Entry date:</b>
+  <%= @experiment.entry_date %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @experiment.author %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @experiment.title %>
+</p>
+
+<p>
+  <b>Summary:</b>
+  <%= @experiment.summary %>
+</p>
+
+<p>
+  <b>Citation:</b>
+  <%= @experiment.citation %>
+</p>
+
+<p>
+  <b>Participants:</b>
+  <%= @experiment.participants %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%= @experiment.size %>
+</p>
+
+<p>
+  <b>Realism:</b>
+  <%= @experiment.realism %>
+</p>
+
+<p>
+  <b>Times Viewed:</b>
+  <%= @experiment.times_viewed %>
+</p>
+
+<p>
+	<b>Tags:</b>
+	<%= @experiment.meta_tags.map {|t| t.tag}.join(", ") %>
+</p>
+
+<p>
+	<b>Added by:</b>
+	<%= User.find(@experiment.user_id).email %>
+</p>
+
+<ul><li><h3>Comments:</h3>
+  <%= render :partial => "comments/comment", :collection => @experiment.comments %> 
+
+  <%= render "comments/form" %>
+</li></ul>
+  
+<%= link_to 'Edit', edit_experiment_path(@experiment) %> |
+<%= link_to 'Back', experiments_path %>
